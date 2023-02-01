@@ -122,3 +122,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CIRCUIT_BREAKER_SETTINGS = {
+    'DEFAULT': {
+        'fail_max': 5,  # Intentos
+        'reset_timeout': 30, # Tiempo en segundos para resetear el contador
+    },
+}

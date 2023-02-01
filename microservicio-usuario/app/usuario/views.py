@@ -1,3 +1,6 @@
+
+from django.conf import settings
+
 from rest_framework import views
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,13 +9,10 @@ import requests
 from pybreaker import CircuitBreaker, CircuitBreakerError
 
 
-
-
 circuit_breaker = CircuitBreaker(
-    fail_max=5, 
-    reset_timeout=30
+    settings.CIRCUIT_BREAKER_SETTINGS['DEFAULT']['fail_max'], 
+    settings.CIRCUIT_BREAKER_SETTINGS['DEFAULT']['reset_timeout']
 )
-# 
 
 @circuit_breaker
 def make_get_request(url):
