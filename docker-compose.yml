@@ -1,0 +1,10 @@
+version: '3'
+services:
+  microservicio-usuario:
+    build: ./microservicio-usuario
+    ports:
+      - "8000:8000"
+  microservicio-pedido:
+    build: ./microservicio-pedido
+    ports:
+      - "8001:8001"
